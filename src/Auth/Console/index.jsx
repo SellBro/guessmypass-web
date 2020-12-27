@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { consoleInputMessageHandler } from './logic';
-import * as Styled from './styled';
+import * as S from './styled';
 
 const data = ['Hello Unknown User!', 'Type in your command'];
 
@@ -21,21 +21,21 @@ const Console = () => {
   };
 
   return (
-    <Styled.ConsoleContainer>
-      <Styled.Title>Console Terminal V 2.0</Styled.Title>
-      <Styled.ConsoleMessagesContaner>
+    <S.ConsoleContainer>
+      <S.Title>Console Terminal V 2.0</S.Title>
+      <S.ConsoleMessagesContaner>
         {messages &&
           messages.map((message, index) => (
-            <Styled.ConsoleMessage key={index}>{message}</Styled.ConsoleMessage>
+            <S.ConsoleMessage key={index}>{message}</S.ConsoleMessage>
           ))}
-      </Styled.ConsoleMessagesContaner>
-      <Styled.ConsoleInput
+      </S.ConsoleMessagesContaner>
+      <S.ConsoleInput
         onKeyPress={handleKeyPress}
         value={value}
         onChange={handleChange}
         placeholder="> Your text here"
       />
-    </Styled.ConsoleContainer>
+    </S.ConsoleContainer>
   );
 };
 

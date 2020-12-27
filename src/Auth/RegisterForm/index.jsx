@@ -10,6 +10,15 @@ import * as S from '../styled';
 const { Field } = Form;
 
 const RegisterForm = ({ goToLogin }) => {
+  const onSubmit = async values => {
+    try {
+      await api.post('user/register', prepareData({ ...values }));
+      goToLogin(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Form
       enableReinitialize
@@ -25,14 +34,7 @@ const RegisterForm = ({ goToLogin }) => {
         password: [Form.is.required(), Form.is.password()],
         passwordConfirm: [Form.is.required(), Form.is.password(), Form.is.passwordsMatch()],
       }}
-      onSubmit={async values => {
-        try {
-          await api.post('user/register', prepareData({ ...values }));
-          goToLogin(true);
-        } catch (error) {
-          console.log(error);
-        }
-      }}>
+      onSubmit={onSubmit}>
       <S.Form>
         <Field.Input placeholder="Email" name="email" />
         <Field.Input placeholder="Username" name="username" />

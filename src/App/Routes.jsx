@@ -1,11 +1,10 @@
 import React from 'react';
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
-import { AuthPage } from 'Auth';
+import AuthPage from 'Auth';
+import HomePage from 'Home';
 
 import { getJwtToken } from 'shared/utils/authToken';
-
-const Pepe = () => <h1>Pepega</h1>;
 
 const Routes = () => {
   return (
@@ -13,7 +12,7 @@ const Routes = () => {
       <Switch>
         <Redirect exact from="/" to="/auth" />
         <Route path="/auth" component={AuthPage} />
-        <ProtectedRoute path="/home" component={Pepe} />
+        <ProtectedRoute path="/home" component={HomePage} />
       </Switch>
     </Router>
   );

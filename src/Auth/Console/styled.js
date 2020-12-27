@@ -12,8 +12,9 @@ export const ConsoleContainer = styled.div`
   margin-top: 200px;
   ${font.bold};
   ${font.size(24)};
-  background-color: ${color.backgoundDarken};
+  background-color: ${color.grayDarken};
   color: ${color.textConsole};
+
   @media (max-width: 1440px) {
     display: none;
   }
@@ -33,12 +34,17 @@ export const ConsoleInput = styled.input`
   border: none;
   border-radius: 25px;
   padding-left: 10px;
-  color: ${color.textConsole};
-  background: ${color.backgroundForm};
   ${font.size(24)};
   ${font.bold};
+  color: ${color.textConsole};
+  background: ${color.backgroundForm};
+
   ::placeholder {
     color: ${color.textConsole};
+  }
+
+  :focus::placeholder {
+    color: transparent;
   }
 `;
 
@@ -54,6 +60,7 @@ export const ConsoleMessage = styled.div`
   width: auto;
   display: inline;
   margin-bottom: 5px;
+
   :before {
     content: '>';
   }

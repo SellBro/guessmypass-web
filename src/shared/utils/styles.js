@@ -10,13 +10,17 @@ export const font = {
 export const color = {
   background: '#32353b',
   backgroundForm: '#40444b',
-  backgoundDarken: '#292c31',
+  grayDarken: '#292c31',
+
+  toggleButtonActive: '#373b41',
 
   border: '#232629',
   borderError: '#ff1800',
 
   textPrimary: '#f4f6fc',
   textConsole: '#1fcc26',
+  textSecondary: '#944fdA',
+  textGray: '#89888b',
 
   buttonPrimary: '#5f15a9',
 };

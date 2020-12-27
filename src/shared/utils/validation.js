@@ -1,5 +1,4 @@
 export const is = {
-  
   passwordsMatch: () => (value, fieldValues) =>
     !(fieldValues.password === fieldValues.passwordConfirm) && 'Passwords dont match',
 
@@ -39,6 +38,5 @@ export const generateErrors = (fieldValues, fieldValidators) => {
       }
     });
   });
-  console.log(errors);
   return errors;
 };

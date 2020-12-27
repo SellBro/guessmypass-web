@@ -14,6 +14,20 @@ const { Field } = Form;
 const LoginForm = () => {
   const history = useHistory();
 
+  const onSubmit = async values => {
+    try {
+      const password = prepareData({ ...values });
+      const { token } = await api.post('user/login', {
+        email: values.email,
+        password,
+      });
+      setJwtToken(token);
+      history.push('/home');
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Form
       enableReinitialize
@@ -25,19 +39,7 @@ const LoginForm = () => {
         email: [Form.is.required(), Form.is.email()],
         password: [Form.is.required(), Form.is.minLength(8)],
       }}
-      onSubmit={async values => {
-        try {
-          const password = prepareData({ ...values });
-          const { token } = await api.post('user/login', {
-            email: values.email,
-            password,
-          });
-          setJwtToken(token);
-          history.push('/home');
-        } catch (e) {
-          console.log(e);
-        }
-      }}>
+      onSubmit={onSubmit}>
       <S.Form>
         <Field.Input placeholder="Email" name="email" />
         <Field.Passwordinput placeholder="Password" name="password" />

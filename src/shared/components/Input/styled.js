@@ -7,10 +7,10 @@ export const Input = styled.input`
   height: 50px;
   background: transparent;
   border: none;
+  ${font.size(24)};
+  ${font.bold};
   color: ${color.textPrimary};
   border-bottom: 2px solid ${color.border};
   border-color: ${props => (props.hasError ? color.borderError : color.border)};
   ${props => props.hasIcon && 'padding-right: 40px'};
-  ${font.size(24)};
-  ${font.bold};
 `;

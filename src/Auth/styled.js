@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { color, font, mixin } from 'shared/utils/styles';
+
 import { Form as FormComponent } from 'shared/components';
 
 export const Button = styled.button`
@@ -10,11 +11,11 @@ export const Button = styled.button`
   margin-top: 10px;
   width: 80%;
   text-transform: uppercase;
-  background-color: ${color.buttonPrimary};
-  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  color: ${color.textPrimary};
   ${font.size(24)};
   ${font.bold};
+  color: ${color.textPrimary};
+  background-color: ${color.buttonPrimary};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
 
 export const FormContainer = styled.div`
@@ -41,10 +42,10 @@ export const ToggleButton = styled.div`
   justify-content: center;
   width: 50%;
   user-select: none;
-  color: ${color.textPrimary};
-  background-color: ${props => (props.active ? '#373B41' : '#292C31')};
   ${font.size(40)};
   ${font.bold};
+  color: ${color.textPrimary};
+  background-color: ${({ active }) => (active ? color.toggleButtonActive : color.grayDarken)};
 `;
 
 export const Auth = styled.div`
@@ -81,15 +82,9 @@ export const Title = styled.div`
   ${font.title};
 `;
 
-export const Pepega = styled.div`
-  overflow: hidden;
-  -webkit-transition: height 1s;
-  transition: height 1s;
-`;
-
 export const CopyRights = styled.div`
   text-align: center;
-  color: grey;
+  color: ${color.textGray};
   position: absolute;
   bottom: 10px;
   width: 100%;

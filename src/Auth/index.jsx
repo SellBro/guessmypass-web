@@ -20,8 +20,6 @@ const AuthPage = () => {
     }
   }, [history]);
 
-  if (getJwtToken()) return <h1>Pepe</h1>;
-
   return (
     <S.Auth>
       <S.AuthContainer>
